@@ -1,0 +1,37 @@
+Think back to the command-line TODO application. How did it work? Something like this:
+
+$ ruby todo.rb list
+1. [ ] Walk the dog
+2. [X] Buy some milk
+
+$ ruby todo.rb delete 1
+Removed "Walk the dog"
+
+$ ruby todo.rb add "Bake a pie"
+Added "Bake a pie"
+
+$ ruby todo.rb list
+1. [ ] Bake a pie
+2. [X] Buy some milk
+
+$ ruby todo.rb complete 1
+Completed "Bake a pie"
+
+$ ruby todo.rb list
+1. [X] Bake a pie
+2. [X] Buy some milk
+
+What did your TODO app have to do to interpret each command (add, delete, etc.)?
+
+    Parse the command-line arguments to know what command and parameters were given
+    Initialize a new TodoList object, populating it with tasks from the todo.txt file
+    Call the appropriate method on this object, e.g., list the tasks, add a task
+    If the command called for it, e.g., add, save the contents of TodoList back to the todo.txt file
+    Print a message to the screen, whether the entire list or maybe just a confirmation message
+
+
+When you ran a command with the TODO app, like
+
+$ ruby todo.rb list
+
+you most likely read in each line of the todo.txt file, initialized a bunch of Ruby objects (List, Task, etc.), and then executed the given commands (list, add, etc.).
